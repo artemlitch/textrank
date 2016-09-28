@@ -1,4 +1,5 @@
 import sys
+import io
 from textrank import textrank
 from parsetext import parseText
 #retrieve each of the articles
