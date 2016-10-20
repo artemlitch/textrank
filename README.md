@@ -4,11 +4,6 @@ A python script (and future application) that takes a URL to a news article, and
 The first stage of this script is the HTML Parser
 The HTML is parsed using BeatufiulSoup 4
 To get the article (this is still not 100% accurate), we go through a few steps:
- 1. 
-
-
-This is a python implementation of TextRank for automatic keyword and sentence extraction (summarization) as done in https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf. 
-
 This also comes with a html parser to attempt to extract the article out of a news site.
 It uses several layers of ranking:
  1. take entire article, and remove all elements that are not suitable for holding text (script, link, etc etc)
