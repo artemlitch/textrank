@@ -21,7 +21,6 @@ def textrank(document):
     print("performing pagerank")
     scores = nx.pagerank(nx_graph)
 
-    import pdb; pdb.set_trace()
     scores = {k:v*1000 for k,v in scores.items()}
     dropoff = 1/len(scores) * 1000
     good_sentences = {k:v for k,v in scores.items() if v-dropoff > 1}
