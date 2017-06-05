@@ -123,7 +123,8 @@ def getBestSection(articleDict):
     return maxK
 
 def parseText(url):
-    r = urllib.urlopen(url).read()
+    with urllib.request.urlopen(url) as url:
+        r = url.read()
     print("opened URL");
     soup = BeautifulSoup(r, "html.parser")
     article = findArticle(soup.findAll())
@@ -147,6 +148,6 @@ def parseText(url):
     for t in allBestText:
         if len(''.join(t.split())) > 0 and t.parent.name not in TAG_NAMES_TO_IGNORE:
             story += ' '.join(t.split()) + ' '
-    print story
-    print "\n-----------------------------------------------\n"
+    print(story)
+    print("\n-----------------------------------------------\n")
     return story

@@ -6,8 +6,9 @@ from parsetext import parseText
 
 def summarize(url):
     print("opening URL")
-    text = parseText(url)
-    print (textrank(text))
+    f = open(url, "r")
+    # text = parseText(f.read())
+    print(textrank(f.read()))
 
 if __name__ == "__main__":
     summarize(sys.argv[1])

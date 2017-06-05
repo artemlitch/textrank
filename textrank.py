@@ -21,15 +21,16 @@ def textrank(document):
     print("performing pagerank")
     scores = nx.pagerank(nx_graph)
 
-    scores = {k:v*1000 for k,v in scores.iteritems()}
+    import pdb; pdb.set_trace()
+    scores = {k:v*1000 for k,v in scores.items()}
     dropoff = 1/len(scores) * 1000
-    good_sentences = {k:v for k,v in scores.iteritems() if v-dropoff > 1}
-    filtered_scores = sorted(map(lambda(x): x[0], sorted(good_sentences.items(), key=operator.itemgetter(1), reverse=True)))[1:]
+    good_sentences = {k:v for k,v in scores.items() if v-dropoff > 1}
+    filtered_scores = sorted(map(lambda x: x[0], sorted(good_sentences.items(), key=operator.itemgetter(1), reverse=True)))[1:]
 
-    print "Summarized! {} sentences reduced to {}, reduced to {}%".format(len(sentences), len(filtered_scores), (len(filtered_scores)/len(sentences))*100)
+    print("Summarized! {} sentences reduced to {}, reduced to {}%".format(len(sentences), len(filtered_scores), (len(filtered_scores)/len(sentences))*100))
     summary = sentences[0] + '\n'
     for k,v in enumerate(filtered_scores):
         summary += sentences[v] + '\n'
-    print "\n-----------------------------------------------\n"
+    print("\n-----------------------------------------------\n")
     return summary
 
